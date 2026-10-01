@@ -1,0 +1,30 @@
+def validar_acceso_fiesta():
+    try:
+        edad = int(input("Introduce tu edad: "))
+    except ValueError:
+        print("Error: Por favor, introduce un número válido para la edad.")
+        return
+
+    color_ropa = input("¿De qué color vas vestido/a?: ").strip().lower()
+
+    respuesta_entrada = (
+        input("¿Tienes entrada? (sí/no): ").strip().lower()
+    )
+    tiene_entrada = respuesta_entrada in ["si", "sí", "s", "yes"]
+
+    # Evaluación de condiciones
+    if edad < 18:
+        print("❌ Acceso denegado: Debes ser mayor de edad.")
+    elif color_ropa != "blanco":
+        print(
+            "❌ Acceso denegado: El código de vestimenta es obligatoriamente blanco."
+        )
+    elif not tiene_entrada:
+        print("❌ Acceso denegado: Necesitas presentar una entrada.")
+    else:
+        print("✅ ¡Acceso permitido! Bienvenido/a a la fiesta 🎉")
+
+
+# Ejecutar el programa
+if __name__ == "__main__":
+    validar_acceso_fiesta()
